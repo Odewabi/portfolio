@@ -1,51 +1,90 @@
-/* General Navbar Styles */
-nav {
-    background-color: #1e40af; /* Blue background */
-    color: white;
-    padding: 1rem 2rem; /* Padding for spacing */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    padding: 1.2rem 2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
   }
   
-  nav .container {
+  .navbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin: 0 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+  }
+  
+  .navbar a.active {
+    color: var(--accent-color);
+    font-weight: bold;
+  }
+  
+  .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
   }
   
-  nav h1 {
-    font-size: 1.5rem;
+  .navbar h1 {
+    font-size: 1.8rem;
     font-weight: bold;
-    letter-spacing: 1px;
+    color: var(--heading-color);
+    text-transform: uppercase;
   }
   
-  /* Navbar Links */
-  nav a {
+  .navbar .links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .links a {
+    padding: 0.6rem;
+    border-radius: 8px;
+    margin-left: 1rem;
+  }
+  
+  .navbar .links a:hover {
+    background-color: var(--accent-color);
     color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    margin: 0 1rem; /* Add space between links */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
   }
   
-  nav a:hover {
-    color: #f59e0b; /* Change link color to a warm yellow on hover */
-  }
-  
-  nav a:focus {
-    outline: none;
-    color: #f59e0b; /* Highlight link when focused */
-  }
-  
-  /* Responsive Design for Small Screens */
   @media (max-width: 768px) {
-    nav .container {
+    .navbar .container {
       flex-direction: column;
       align-items: flex-start;
     }
   
-    nav a {
-      margin: 0.5rem 0;
+    .navbar .links {
+      width: 100%;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
+  
+    .navbar .links a {
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+    }
+  }
+  
+  .navbar.scrolled {
+    background-color: var(--bg-color-dark);
+  }
+  
+  .navbar a.active {
+    color: var(--accent-color);
   }
   

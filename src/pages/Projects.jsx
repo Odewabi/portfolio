@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import './Projects.css';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./Projects.css";
 
-const Projects = () => {
+const Portfolio = () => {
   const [projects, setProjects] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [httpError, setHttpError] = useState(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -12,60 +11,44 @@ const Projects = () => {
         const response = await fetch(
           "https://portfolio-84ce0-default-rtdb.firebaseio.com/portfolio.json"
         );
+        const data = await response.json();
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch data.");
-        }
-
-        const responseData = await response.json();
-
-        if (!responseData) {
-          throw new Error("No projects found.");
-        }
-
-        const loadedProjects = Object.keys(responseData).map((key) => ({
+        const loadedProjects = Object.keys(data).map(key => ({
           id: key,
-          title: responseData[key].title,
-          description: responseData[key].description,
-          skills: responseData[key].skills,
-          technologies: responseData[key].technologies,
+          title: data[key].title,
+          description: data[key].description,
+          skills: data[key].skills,
+          technologies: data[key].technologies,
         }));
 
         setProjects(loadedProjects);
-        setIsLoading(false);
       } catch (error) {
-        setIsLoading(false);
-        setHttpError(error.message);
+        console.error("Error fetching projects:", error);
       }
     };
 
     fetchProjects();
   }, []);
 
-  if (isLoading) {
-    return <p>Loading projects...</p>;
-  }
-
-  if (httpError) {
-    return <p style={{ color: "red" }}>Error: {httpError}</p>;
-  }
-
   return (
-    <section>
-      <h2>My Projects</h2>
-      <ul>
+    <section className="portfolio">
+      <h1>My Projects</h1>
+      <div className="projects-grid">
         {projects.map((project) => (
-          <li key={project.id}>
-            <h3>{project.title}</h3>
+          <div key={project.id} className="project-card">
+            <h2>{project.title}</h2>
             <p>{project.description}</p>
-            <strong>Skills:</strong> {project.skills}
-            <br />
-            <strong>Technologies:</strong> {project.technologies}
-          </li>
+            <p><strong>Skills:</strong> {project.skills}</p>
+            <p><strong>Technologies:</strong> {project.technologies}</p>
+          </div>
         ))}
-      </ul>
+      </div>
+      <p>
+        If you'd like to get in touch, visit my{" "}
+        <Link to="/contact" className="contact-link">Contact Page</Link>.
+      </p>
     </section>
   );
 };
 
-export default Projects;
+export default Portfolio;

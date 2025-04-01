@@ -11,9 +11,9 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-gray-100 text-gray-900">
+      <div className="app-container">
         <Navbar />
-        <main className="flex-grow container mx-auto p-4">
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
