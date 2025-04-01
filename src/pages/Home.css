@@ -1,0 +1,51 @@
+.home-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .home-content {
+    max-width: 800px;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+  }
+  
+  .home-intro {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .highlighted-name {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .home-summary {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+  
