@@ -44,6 +44,18 @@ const Portfolio = () => {
         ))}
       </div>
       <p>
+          You can view more of my work on{" "}
+        <a
+          href="https://github.com/dashboard"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="github-link"
+        >
+          GitHub
+        </a>.
+      </p>
+
+      <p>
         If you'd like to get in touch, visit my{" "}
         <Link to="/contact" className="contact-link">Contact Page</Link>.
       </p>
