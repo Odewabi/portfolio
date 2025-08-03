@@ -46,7 +46,7 @@ const Portfolio = () => {
       <p>
           You can view more of my work on{" "}
         <a
-          href="https://github.com/dashboard"
+          href="https://github.com/Odewabi?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
           className="github-link"
